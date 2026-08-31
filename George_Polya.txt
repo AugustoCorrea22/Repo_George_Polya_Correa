@@ -1,0 +1,97 @@
+Identificar datos de entrada y resultados esperados
+
+Datos de entrada:
+  
+Importe de la compra (valor numérico positivo).
+
+Cantidad de productos (número entero positivo).
+
+Cliente registrado (indicador de membresía o estado, ej. Sí/No, True/False).
+
+Método de envío (texto que debe corresponder a una opción válida: retiro, estándar o express).
+
+Resultados esperados:
+
+Un resumen claro y estructurado que detalle:
+
+Importe original de los productos.
+
+Descuentos aplicados (origen del descuento y monto descontado).
+
+Costo de envío correspondiente.
+
+Total final a pagar.
+
+Mensajes de error descriptivos si se detectan datos inválidos durante la carga.
+
+Definir reglas, condiciones y validaciones
+
+Validaciones iniciales (Control de errores):
+
+Importe de compra: Debe ser mayor a 0 (se rechazan ceros o números negativos).
+
+Cantidad de productos: Debe ser un número entero mayor o igual a 1.
+
+Método de envío: Debe coincidir con las opciones permitidas (retiro, estándar, express), ignorando diferencias entre mayúsculas y minúsculas.
+
+Condiciones comerciales (Propuesta lógica):
+
+Descuento por registro: Los clientes registrados obtienen un beneficio porcentual adicional (por ejemplo, un 10% de rebaja sobre el subtotal).
+
+Descuento por volumen/importe: Bonificaciones adicionales si la compra supera ciertos umbrales de dinero o cantidad de artículos.
+
+Tarifas de envío:
+
+Retiro: Costo $0.
+
+Estándar: Tarifa base fija (con opción de bonificación si el importe supera un mínimo).
+
+Express: Tarifa superior debido al servicio prioritario.
+
+Diseñar el plan lógico
+
+Captura de datos: Solicitar al usuario los cuatro datos de entrada requeridos mediante la interfaz disponible.
+
+Validación de datos:
+
+Verificar que la cantidad sea un entero válido y mayor a 0.
+
+Verificar que el importe sea numérico y mayor a 0.
+
+Verificar que el método de envío esté dentro de las opciones aceptadas.
+
+Si alguna validación falla: Mostrar un mensaje de error específico y finalizar o detener el flujo del programa.
+
+Cálculo de descuentos:
+
+Aplicar la rebaja correspondiente si el cliente está registrado.
+
+Aplicar descuentos adicionales por volumen o importe si aplican.
+
+Obtener el subtotal con los descuentos aplicados.
+
+Cálculo de envío: Determinar la tarifa de envío según el método seleccionado y las condiciones del pedido.
+
+Cálculo del total final: Sumar el subtotal con descuento más el costo del envío.
+
+Emisión del resumen: Mostrar en pantalla el desglose ordenado con cada uno de los valores calculados.
+
+Probar casos normales, límites y errores
+
+Caso Normal:
+
+Entrada: Importe = $15,000, Cantidad = 3, Registrado = Sí, Envío = Estándar.
+
+Resultado esperado: Se aplica el descuento de cliente registrado sobre los $15,000, se suma la tarifa fija de envío estándar y se muestra el desglose completo con el total correcto.
+
+Caso Límite:
+
+Entrada: Importe exactamente en el límite donde se activa una promoción o envío gratis (ej. $20,000), Cantidad = 1, Registrado = No, Envío = Estándar.
+
+Resultado esperado: El sistema evalúa correctamente la condición de frontera y aplica el beneficio correspondiente de manera exacta.
+
+Caso de Error:
+
+Entrada: Importe = -$5,000 (negativo), Cantidad = 0, Registrado = Sí, Envío = "avion".
+
+ Resultado esperado: Las validaciones detectan el importe negativo, la cantidad menor a uno y el método de envío inexistente, abortando el proceso y mostrando alertas claras al usuario.
